@@ -1,0 +1,36 @@
+{
+  "name": "infinity-actions",
+  "version": "1.0.0",
+  "description": "Action Runner injection library for TypeScript is supported Node.js and Javascript environments.",
+  "author": "Armen Harutyunyan <mench.harutyunyan@gmail.com>",
+  "homepage": "https://github.com/infiniteharbor/ifinity-actions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infiniteharbor/ifinity-actions.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/infiniteharbor/ifinity-actions/issues"
+  },
+  "keywords": [
+    "action-runner",
+    "dependency-injection",
+    "javascript",
+    "typescript",
+    "ts"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
+  "scripts": {
+    "test": "node lib/test"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.9"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.7"
+  }
+}
