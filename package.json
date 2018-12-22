@@ -2,7 +2,7 @@
   "name": "infinity-actions",
   "version": "1.0.0",
   "description": "Action Runner injection library for TypeScript is supported Node.js and Javascript environments.",
-  "author": "Armen Harutyunyan <mench.harutyunyan@gmail.com>",
+  "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-actions",
   "repository": {
     "type": "git",
@@ -25,12 +25,21 @@
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
   "scripts": {
-    "test": "node lib/test"
+    "build": "tsc",
+    "test": "node lib/test",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn watch-test-index\" \"yarn watch-test-test\"",
+    "watch-ts": "tsc -w",
+    "watch-test-index": "nodemon ./lib/test/index.js",
+    "watch-test-test": "nodemon ./lib/test/test.js"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.9"
+    "reflect-metadata": "^0.1.12",
+    "infinity-utilities": "G:\\WINDOWS\\DESKTOP\\HEROKU\\infinite-harbor\\modules\\infinity-utilities"
   },
   "devDependencies": {
-    "@types/node": "^10.11.7"
+    "@types/node": "^10.12.18",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9",
+    "typescript": "^3.2.2"
   }
 }
