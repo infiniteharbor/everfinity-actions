@@ -19,27 +19,33 @@
     "typescript",
     "ts"
   ],
-  "directories": {
-    "test": "test"
-  },
-  "main": "lib/src/index.js",
-  "types": "lib/src/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node lib/test",
+    "test": "mocha  --require ts-node/register ./test/**/*",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn watch-test-index\" \"yarn watch-test-test\"",
     "watch-ts": "tsc -w",
-    "watch-test-index": "nodemon ./lib/test/index.js",
-    "watch-test-test": "nodemon ./lib/test/test.js"
+    "watch-test": "nodemon ./lib/test/index.js",
+    "release": "grunt bump",
+    "gen-docs": "typedoc --out ./docs ./src"
   },
   "dependencies": {
+    "@everfinity/utilities": "^0.0.21",
     "reflect-metadata": "^0.1.12",
-    "infinity-utilities": "G:\\WINDOWS\\DESKTOP\\HEROKU\\infinite-harbor\\modules\\infinity-utilities"
+    "typedoc": "0.13.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.18",
+    "chai": "^4.2.0",
     "concurrently": "^4.1.0",
+    "grunt": "^1.0.3",
+    "grunt-bump": "^0.8.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
+    "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   }
 }

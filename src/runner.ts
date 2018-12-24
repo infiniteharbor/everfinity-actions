@@ -1,9 +1,8 @@
-
-
+import Option from "@everfinity/utilities/option";
 
 
 export interface ActionRunnerSupport<T> {
-  findRecordById(id: string): Optional<T>;
+  findRecordById(id: string): Option<T>;
 }
 
 export default class ActionRunner<T> {
