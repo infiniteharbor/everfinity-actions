@@ -1,0 +1,52 @@
+{
+  "name": "@everfinity/actions",
+  "version": "0.0.0",
+  "description": "Action Runner injection library for TypeScript is supported Node.js and Javascript environments.",
+  "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
+  "homepage": "https://github.com/infiniteharbor/ifinity-actions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infiniteharbor/ifinity-actions.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/infiniteharbor/ifinity-actions/issues"
+  },
+  "keywords": [
+    "action-runner",
+    "dependency-injection",
+    "javascript",
+    "typescript",
+    "ts"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc & npm run copy",
+    "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn watch-test-index\" \"yarn watch-test-test\"",
+    "watch-ts": "tsc -w",
+    "watch-test": "nodemon ./lib/test/index.js",
+    "release": "grunt bump",
+    "gen-docs": "typedoc --out ./docs ./src & cp ./.nojekyll ./docs",
+    "copy": "cp package.json ./lib/ && cp README.md ./lib/"
+  },
+  "dependencies": {
+    "@everfinity/utilities": "^0.0.21",
+    "reflect-metadata": "^0.1.12",
+    "typedoc": "0.13.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
+    "grunt": "^1.0.3",
+    "grunt-bump": "^0.8.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  }
+}
