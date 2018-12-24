@@ -43,7 +43,8 @@ jobs:
         - npm publish ./lib --access public   
 stages:
   - test
-  - compile
+  - name: compile
+    if: branch = master
   - name: release
     if: branch = master
   - name: publish
