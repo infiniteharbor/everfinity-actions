@@ -1,6 +1,6 @@
 {
-  "name": "infinity-actions",
-  "version": "1.0.0",
+  "name": "@everfinity/actions",
+  "version": "0.0.0",
   "description": "Action Runner injection library for TypeScript is supported Node.js and Javascript environments.",
   "author": "Infinite Harbor Team <infinite.harbor@gmail.com>",
   "homepage": "https://github.com/infiniteharbor/ifinity-actions",
@@ -22,13 +22,14 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "mocha  --require ts-node/register ./test/**/*",
+    "build": "tsc & npm run copy",
+    "test": "mocha --recursive --require ts-node/register --colors \"./test/**/*.ts\"",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn watch-test-index\" \"yarn watch-test-test\"",
     "watch-ts": "tsc -w",
     "watch-test": "nodemon ./lib/test/index.js",
     "release": "grunt bump",
-    "gen-docs": "typedoc --out ./docs ./src"
+    "gen-docs": "typedoc --out ./docs ./src & cp ./.nojekyll ./docs",
+    "copy": "cp package.json ./lib/ && cp README.md ./lib/"
   },
   "dependencies": {
     "@everfinity/utilities": "^0.0.21",

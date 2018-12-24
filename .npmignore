@@ -4,3 +4,10 @@ node_modules
 *.log
 dist
 out
+src/**/*
+docs
+tsconfig.json
+*.lock
+GruntFile.js
+.travis.yml
+.gitignore
